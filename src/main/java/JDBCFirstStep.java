@@ -38,9 +38,12 @@ public class JDBCFirstStep {
                     //TODO do something
                     System.out.println("Object found");
                 }
+            } catch (SQLException e) {
+                System.err.println("Something went wrong");
+                e.printStackTrace();
             }
         }  catch (SQLException e) {
-            System.out.println("Something went wrong");
+            System.err.println("Something went wrong");
             e.printStackTrace();
         }
     }
