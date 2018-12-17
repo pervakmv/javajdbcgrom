@@ -29,8 +29,8 @@ public class JDBCFirstStep {
 
             try (ResultSet resultSet = statement.executeQuery("SELECT *FROM TEST")) {
                 while (resultSet.next()) {
-                  
-                    System.out.println("Object found " + resultSet.getString(2));
+
+                    System.out.println("Object found");
                 }
             }
         }  catch (SQLException e) {
