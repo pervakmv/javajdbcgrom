@@ -35,7 +35,6 @@ public class JDBCFirstStep {
              //   System.out.println(resultSet.getString(1));
 
                 while (resultSet.next()) {
-                    //TODO do something
                     System.out.println("Object found");
                 }
             }
