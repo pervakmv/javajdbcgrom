@@ -28,14 +28,9 @@ public class JDBCFirstStep {
 
 
             try (ResultSet resultSet = statement.executeQuery("SELECT *FROM TEST")) {
-                System.out.println("Start");
-                ResultSetMetaData rsmd = resultSet.getMetaData();
-                int columnsNumber = rsmd.getColumnCount();
-                System.out.println("columnsNumber = " + columnsNumber); //правильно определяет количество колонок
-             //   System.out.println(resultSet.getString(1));
-
                 while (resultSet.next()) {
-                    System.out.println("Object found");
+                  
+                    System.out.println("Object found " + resultSet.getString(2));
                 }
             }
         }  catch (SQLException e) {
