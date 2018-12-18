@@ -34,7 +34,9 @@ public class JDBCFirstStep {
                 }
             }
         }  catch (SQLException e) {
-            System.err.println("Something went wrong");
+            //System.err.println("Something went wrong");
+            System.out.println("Ups");
+                    
             e.printStackTrace();
         }
     }
