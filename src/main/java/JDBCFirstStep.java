@@ -3,12 +3,11 @@ import java.sql.*;
 public class JDBCFirstStep {
 
     private static final String JDBC_DRIVER = "oracle.jdbc.driver.OracleDriver";
-    //private static final String DB_URL = "jdbc:oracle:thin:@pervakmv-gromcode-lessons.ckeuefrwg72q.us-east-2.rds.amazonaws.com:1521:ORCL";
-    private static final String DB_URL = "jdbc:oracle:thin:@gromcode-lessons.cevifwod4ax4.us-east-1.rds.amazpnaws.com:1521:ORCL";
+    private static final String DB_URL = "jdbc:oracle:thin:@pervakmv-gromcode-lessons.ckeuefrwg72q.us-east-2.rds.amazonaws.com:1521:ORCL";
 
     private static final String USER = "main";
-    //private static final String PASS = "FastovFox2278";
-    private static final String PASS = "momino142";
+    private static final String PASS = "FastovFox2278";
+
 
     public static void main(String[] args) {
 
@@ -37,8 +36,6 @@ public class JDBCFirstStep {
             }
         }  catch (SQLException e) {
             System.err.println("Something went wrong");
-            //System.out.println("Ups");
-                    
             e.printStackTrace();
         }
     }
