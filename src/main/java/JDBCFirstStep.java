@@ -28,10 +28,25 @@ public class JDBCFirstStep {
             }
 
 
-            try (ResultSet resultSet = statement.executeQuery("SELECT *FROM TEST")) {
+            try (ResultSet resultSet = statement.executeQuery("SELECT *FROM PRODUCT2")) {
+            //try(ResultSet resultSet = statement.executeQuery("SELECT *FROM ORDERS1")){
                 while (resultSet.next()) {
 
-                    System.out.println("Object found");
+                   // System.out.println("Object found");
+                   // System.out.println(resultSet.getInt(1));
+                    //System.out.println(resultSet.getString(2));
+                    //Заповнюємо поля об'єкту даними з бази
+                    long id = resultSet.getLong(1);
+                    String productName = resultSet.getString(2);
+                    String description = resultSet.getString(3);
+                    int price = resultSet.getInt(4);
+                    //Date dateOrdered = resultSet.getDate(4);
+                    //Date dateConfirmed = resultSet.getDate(5);
+
+
+                    //Order order = new Order(id, productName, price, dateOrdered, dateConfirmed);
+                    Product product = new Product(id, productName, description, price);
+                    System.out.println(product);
                 }
             }
         }  catch (SQLException e) {
