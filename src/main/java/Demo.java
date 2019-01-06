@@ -9,6 +9,9 @@ public class Demo {
 
         //solution.getAllProducts();
         //solution.getProductsByPrice();
-        solution.getProductsByDescription();
+        //solution.getProductsByDescription();
+        //System.out.println(solution.getAllProductsToArrayList());
+        //solution.increasePrice();
+        solution.changeDescription();
     }
 }
