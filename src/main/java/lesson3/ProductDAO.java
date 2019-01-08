@@ -51,7 +51,7 @@ public class ProductDAO {
 
     }
 
-    public List<Product> getProducts() {
+    public static List<Product> getProducts() {
         List<Product> products = new ArrayList<>();
 
         try (Connection connection = getConnection();
@@ -105,7 +105,7 @@ public class ProductDAO {
         return product;
     }
 
-    private Connection getConnection() throws SQLException {
+    private static Connection getConnection() throws SQLException {
         return DriverManager.getConnection(DB_URL, USER, PASS);
     }
 
