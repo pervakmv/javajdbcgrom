@@ -1,3 +1,5 @@
+package lesson3;
+
 public class Product {
     private long id;
     private String name;

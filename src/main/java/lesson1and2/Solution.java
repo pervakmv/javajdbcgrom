@@ -1,3 +1,5 @@
+package lesson1and2;
+
 import java.sql.*;
 import java.util.ArrayList;
 
