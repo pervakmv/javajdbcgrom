@@ -24,8 +24,12 @@ public class Demo {
  //       System.out.println(solution.findProductsByPrice(100, 50));
 
         //System.out.println(solution.findProductsByName("toy"));
-        System.out.println(solution.findProductsWithEmptyDescription());
-
+      //  System.out.println(solution.findProductsWithEmptyDescription());
+        //solution.testSavePerformance();
+        //solution.testDeleteByIdPerformance();
+        //solution.testDeletePerformance();
+        //solution.testSelectPerformance();
+        solution.testSelectByIdPerformance();
     }
 
 }
