@@ -1,5 +1,6 @@
 package lesson3;
 
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -59,5 +60,92 @@ public class Solution {
         }
         return resArrayList;
     }
+
+
+    void testSavePerformance() throws Exception {
+
+
+        try (Connection connection = ProductDAO.getConnection();
+             PreparedStatement prepareStatement = connection.prepareStatement("INSERT INTO TEST_SPEED VALUES(?, ?, ?)")) {
+            for (int i = 0; i < 1000; i++) {
+                prepareStatement.setLong(1, i);
+                prepareStatement.setString(2, "test speed row" + i);
+                prepareStatement.setInt(3, i % 8);
+
+                int res = prepareStatement.executeUpdate();
+
+            }
+        } catch (SQLException e) {
+            System.err.println("Something went wrong in savePerformance");
+            e.printStackTrace();
+        }
+
+
+    }
+
+    void testDeleteByIdPerformance() throws Exception {
+        try (Connection connection = ProductDAO.getConnection()) {
+            PreparedStatement prepareStatement = connection.prepareStatement("DELETE FROM TEST_SPEED WHERE ID=?");
+            for (int i = 0; i < 1000; i++) {
+                prepareStatement.setLong(1, i);
+
+                int res = prepareStatement.executeUpdate();
+            }
+
+        } catch (SQLException e) {
+            System.err.println("Something went wrong in deleteByIdPerformance");
+        }
+    }
+
+    void testDeletePerformance() throws Exception {
+        try (Connection connection = ProductDAO.getConnection()) {
+            Statement statement = connection.createStatement();
+
+            int res = statement.executeUpdate("DELETE FROM TEST_SPEED WHERE ID>=0 AND ID<=999");
+        } catch (SQLException e) {
+            System.err.println("Something went wrong in deleteByIdPerformance");
+        }
+    }
+
+
+    private void outputResultSet(ResultSet inResultSet) throws SQLException {
+        while (inResultSet.next()) {
+            System.out.print(inResultSet.getLong(1));
+            System.out.print(inResultSet.getString(2));
+            System.out.println(inResultSet.getInt(3));
+
+        }
+    }
+
+    public void testSelectPerformance() {
+        try (Connection connection = ProductDAO.getConnection();
+             Statement statement = connection.createStatement()) {
+            try (ResultSet resultSet = statement.executeQuery("SELECT *FROM TEST_SPEED")) {
+                outputResultSet(resultSet);
+            }
+
+        } catch (SQLException e) {
+            System.out.println("Something went wrong in testSelectPerformance");
+
+        }
+
+
+    }
+
+    public void testSelectByIdPerformance() {
+        try (Connection connection = ProductDAO.getConnection();
+             Statement statement = connection.createStatement()) {
+
+            for (long i = 0; i < 1000; i++) {
+                String sql = "SELECT *FROM TEST_SPEED WHERE ID=" + i;
+                try (ResultSet resultSet = statement.executeQuery(sql)) {
+                    outputResultSet(resultSet);
+                }
+            }
+        } catch (SQLException e) {
+            System.out.println("Something went wrong in testSelectByIdPerformenc");
+        }
+    }
+
 
 }

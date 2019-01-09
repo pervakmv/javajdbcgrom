@@ -14,6 +14,6 @@ public class Demo {
         //solution.getProductsByDescription();
         //System.out.println(solution.getAllProductsToArrayList());
         //solution.increasePrice();
-        solution.changeDescription();
+        //solution.changeDescription();
     }
 }
