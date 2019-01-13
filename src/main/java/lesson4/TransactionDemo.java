@@ -1,6 +1,6 @@
 package lesson4;
 
-import lesson3.Product;
+
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -22,9 +22,9 @@ public class TransactionDemo {
     private static final String PASS = "FastovFox2278";
 
     public static void main(String[] args) {
-        Product product1 = new Product(55, "!!!", "!!!", 777);
-        Product product2 = new Product(66, "!!!", "!!!", 777);
-        Product product3 = new Product(77, "!!!", "!!!", 777);
+        Product product1 = new Product(100, "!!!", "!!!", 777);
+        Product product2 = new Product(102, "!!!", "!!!", 777);
+        Product product3 = new Product(103, "!!!", "!!!", 777);
 
         List<Product> products = new ArrayList<>();
         products.add(product1);
@@ -52,7 +52,7 @@ public class TransactionDemo {
         try (PreparedStatement prepareStatement = connection.prepareStatement("INSERT INTO PRODUCT2 VALUES(?, ?, ?, ?)")) {
 
             connection.setAutoCommit(false);
-           
+
             for (Product product : products) {
 
                 prepareStatement.setLong(1, product.getId());
