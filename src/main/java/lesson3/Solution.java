@@ -117,6 +117,44 @@ public class Solution {
         }
     }
 
+
+    private void outputResultSetFile(ResultSet inResultSet) throws SQLException {
+
+        while (inResultSet.next()) {
+            System.out.print(inResultSet.getLong(1)+" ");
+            System.out.print(inResultSet.getString(2)+ " ");
+            System.out.print(inResultSet.getString(3) + " ");
+            System.out.print(inResultSet.getInt(4)+ " ");
+            System.out.println(inResultSet.getInt(5) + " ");
+
+        }
+    }
+
+    public void testSelectPerformanceFile() {
+        try (Connection connection = ProductDAO.getConnection();
+             Statement statement = connection.createStatement()) {
+            try (ResultSet resultSet = statement.executeQuery("SELECT *FROM FILE_")) {
+                //outputResultSet(resultSet);
+                while (resultSet.next()){
+
+                    System.out.print(resultSet.getLong(1) + " ");
+                    System.out.print(resultSet.getString(2) + " ");
+                    System.out.print(resultSet.getString(3) + " ");
+                    System.out.print(resultSet.getInt(4) + " ");
+                    System.out.println(resultSet.getLong(5) + " ");
+                }
+            }
+
+        } catch (SQLException e) {
+            System.out.println(" Something went wrong in testSelectPerformanceFile ");
+            e.printStackTrace();
+
+        }
+
+
+    }
+
+
     public void testSelectPerformance() {
         try (Connection connection = ProductDAO.getConnection();
              Statement statement = connection.createStatement()) {

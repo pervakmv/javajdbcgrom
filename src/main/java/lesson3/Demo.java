@@ -29,7 +29,10 @@ public class Demo {
         //solution.testDeleteByIdPerformance();
         //solution.testDeletePerformance();
         //solution.testSelectPerformance();
-        solution.testSelectByIdPerformance();
+        //solution.testSelectByIdPerformance();
+
+
+        solution.testSelectPerformanceFile();
     }
 
 }
