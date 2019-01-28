@@ -1,4 +1,4 @@
-package lesson5;
+package hibernate.lesson1;
 
 import org.hibernate.Session;
 

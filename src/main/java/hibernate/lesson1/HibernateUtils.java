@@ -1,4 +1,4 @@
-package lesson5;
+package hibernate.lesson1;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -7,7 +7,7 @@ public class HibernateUtils {
 
     private SessionFactory sessionFactory;
 
-    SessionFactory createSessionFactory() {
+    public SessionFactory createSessionFactory() {
         return new Configuration().configure().buildSessionFactory();
     }
 
