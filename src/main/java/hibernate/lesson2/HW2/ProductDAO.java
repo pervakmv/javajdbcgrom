@@ -1,5 +1,6 @@
 package hibernate.lesson2.HW2;
 
+import hibernate.lesson2.HW.Product;
 import org.hibernate.*;
 import org.hibernate.cfg.Configuration;
 

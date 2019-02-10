@@ -1,6 +1,5 @@
 package hibernate.lesson2.HW;
 
-import hibernate.lesson2.HW2.Product;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
