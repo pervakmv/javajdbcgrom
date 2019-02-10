@@ -114,7 +114,7 @@ public class ProductDAO {
             session = createSessionFactory().openSession();
             tr = session.getTransaction();
             tr.begin();
-            Query query = session.createQuery("from Product where name = : name");
+            Query query = session.createQuery("from Product where name = :name");
             query.setParameter("name", name);
             resProduct = query.list();
 
@@ -233,7 +233,7 @@ public class ProductDAO {
             session = createSessionFactory().openSession();
             tr = session.getTransaction();
             tr.begin();
-            Query query = session.createQuery("from Product where name =: name order by name asc");
+            Query query = session.createQuery("from Product where name =:name order by name asc");
             query.setParameter("name", name);
             resProduct = query.list();
             session.getTransaction().commit();
@@ -258,7 +258,7 @@ public class ProductDAO {
             session = createSessionFactory().openSession();
             tr = session.getTransaction();
             tr.begin();
-            Query query = session.createQuery("from Product where name =: name order by name desc");
+            Query query = session.createQuery("from Product where name =:name order by name desc");
             query.setParameter("name", name);
             resProduct = query.list();
             session.getTransaction().commit();
